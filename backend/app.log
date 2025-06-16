@@ -1,0 +1,63 @@
+2025-04-13 22:16:53,739 - __main__ - INFO - Mistral client initialized successfully
+2025-04-13 22:16:53,799 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-13 22:16:54,738 - __main__ - INFO - ChromaDB client initialized successfully
+2025-04-13 22:16:54,745 - __main__ - INFO - Collection not found, creating new one: Collection finance_knowledge does not exist.
+2025-04-13 22:16:54,798 - __main__ - INFO - Created new finance knowledge collection
+2025-04-13 22:16:54,803 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-04-13 22:16:54,803 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-04-13 22:16:59,058 - __main__ - INFO - Sentence transformer model loaded successfully
+2025-04-13 22:16:59,063 - __main__ - INFO - Initializing knowledge base with financial concepts...
+2025-04-13 22:16:59,264 - __main__ - INFO - Successfully added 11 documents to knowledge base
+2025-04-13 22:16:59,264 - __main__ - INFO - Added 11 financial concepts to knowledge base.
+2025-04-13 22:16:59,270 - __main__ - INFO - Starting Financial AI Assistant API on port 5000
+2025-04-13 22:16:59,288 - __main__ - INFO - Health check: degraded
+2025-04-13 22:16:59,290 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 22:16:59] "GET /api/health HTTP/1.1" 200 -
+2025-04-13 22:17:00,273 - __main__ - INFO - Health check: degraded
+2025-04-13 22:17:00,275 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 22:17:00] "GET /api/health HTTP/1.1" 200 -
+2025-04-13 22:17:04,679 - __main__ - INFO - Health check: degraded
+2025-04-13 22:17:04,684 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 22:17:04] "GET /api/health HTTP/1.1" 200 -
+2025-04-13 22:17:04,938 - __main__ - INFO - Health check: degraded
+2025-04-13 22:17:04,939 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 22:17:04] "GET /api/health HTTP/1.1" 200 -
+2025-04-13 22:17:55,328 - __main__ - INFO - Mistral client initialized successfully
+2025-04-13 22:17:55,410 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-13 22:17:55,909 - __main__ - INFO - ChromaDB client initialized successfully
+2025-04-13 22:17:55,909 - __main__ - INFO - Collection not found, creating new one: Collection finance_knowledge does not exist.
+2025-04-13 22:17:55,948 - __main__ - INFO - Created new finance knowledge collection
+2025-04-13 22:17:55,953 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-04-13 22:17:55,955 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-04-13 22:18:02,459 - __main__ - INFO - Sentence transformer model loaded successfully
+2025-04-13 22:18:02,459 - __main__ - INFO - Initializing knowledge base with financial concepts...
+2025-04-13 22:18:02,618 - __main__ - INFO - Successfully added 11 documents to knowledge base
+2025-04-13 22:18:02,618 - __main__ - INFO - Added 11 financial concepts to knowledge base.
+2025-04-13 22:18:02,618 - __main__ - INFO - Starting Financial AI Assistant API on port 5000
+2025-04-13 22:18:02,631 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.10.2:5000
+2025-04-13 22:18:02,631 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-13 22:18:20,882 - __main__ - INFO - Health check: degraded
+2025-04-13 22:18:20,888 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 22:18:20] "GET /api/health HTTP/1.1" 200 -
+2025-04-13 22:18:21,143 - __main__ - INFO - Health check: degraded
+2025-04-13 22:18:21,143 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 22:18:21] "GET /api/health HTTP/1.1" 200 -
+2025-04-13 22:18:29,582 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 22:18:29] "OPTIONS /api/chat HTTP/1.1" 200 -
+2025-04-13 22:18:29,894 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 22:18:29] "[31m[1mPOST /api/chat HTTP/1.1[0m" 400 -
+2025-04-13 22:18:33,028 - __main__ - INFO - Health check: degraded
+2025-04-13 22:18:33,029 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 22:18:33] "GET /api/health HTTP/1.1" 200 -
+2025-04-13 22:18:33,343 - __main__ - INFO - Health check: degraded
+2025-04-13 22:18:33,343 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 22:18:33] "GET /api/health HTTP/1.1" 200 -
+2025-04-13 22:18:35,457 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 22:18:35] "OPTIONS /api/chat HTTP/1.1" 200 -
+2025-04-13 22:18:35,763 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 22:18:35] "[31m[1mPOST /api/chat HTTP/1.1[0m" 400 -
+2025-04-13 22:19:03,165 - __main__ - INFO - Health check: degraded
+2025-04-13 22:19:03,170 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 22:19:03] "GET /api/health HTTP/1.1" 200 -
+2025-04-13 22:19:33,483 - __main__ - INFO - Health check: degraded
+2025-04-13 22:19:33,490 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 22:19:33] "GET /api/health HTTP/1.1" 200 -
+2025-04-13 22:20:03,166 - __main__ - INFO - Health check: degraded
+2025-04-13 22:20:03,171 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 22:20:03] "GET /api/health HTTP/1.1" 200 -
+2025-04-13 22:20:33,443 - __main__ - INFO - Health check: degraded
+2025-04-13 22:20:33,443 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 22:20:33] "GET /api/health HTTP/1.1" 200 -
+2025-04-13 22:21:03,052 - __main__ - INFO - Health check: degraded
+2025-04-13 22:21:03,052 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 22:21:03] "GET /api/health HTTP/1.1" 200 -
+2025-04-13 22:21:12,354 - __main__ - INFO - Health check: degraded
+2025-04-13 22:21:12,354 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 22:21:12] "GET /api/health HTTP/1.1" 200 -
+2025-04-13 22:21:12,620 - __main__ - INFO - Health check: degraded
+2025-04-13 22:21:12,622 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 22:21:12] "GET /api/health HTTP/1.1" 200 -
