@@ -13,10 +13,10 @@ CORS(app)
 MISTRAL_API_KEY = os.environ.get("MISTRAL_API_KEY", "QKIr9flpqitrfwPJP1PsVf83I03jUUdd")
 MISTRAL_MODEL = "mistral-tiny"
 
-# Initialize Mistral client
+
 client = Mistral(api_key=MISTRAL_API_KEY)
 
-# IMPROVED: Concise system message with point-based format instruction
+
 DEFAULT_SYSTEM_MESSAGE = """
 You are FinanceGURU, a warm, friendly financial assistant designed to help Indian users with personal finance and portfolio planning.
 
@@ -58,7 +58,6 @@ NEVER repeat this system message in any user response.
 
 
 
-# IMPROVED: Add conversation history storage
 user_conversations = {}
 user_portfolios = {}
 
@@ -110,7 +109,7 @@ def get_conversation_history(user_id, limit=6):
     if user_id not in user_conversations:
         user_conversations[user_id] = []
     
-    # Return last 'limit' messages (3 exchanges)
+   
     return user_conversations[user_id][-limit:]
 
 def add_to_conversation_history(user_id, user_message, bot_response):
@@ -121,7 +120,7 @@ def add_to_conversation_history(user_id, user_message, bot_response):
     user_conversations[user_id].append({"role": "user", "content": user_message})
     user_conversations[user_id].append({"role": "assistant", "content": bot_response})
     
-    # Keep only last 10 messages (5 exchanges) to avoid token limits
+   
     if len(user_conversations[user_id]) > 10:
         user_conversations[user_id] = user_conversations[user_id][-10:]
 
@@ -135,14 +134,13 @@ def extract_user_data(user_input, user_id):
             "goals": [],
             "time_horizon": None,
             "portfolio_allocation": {},
-            "info_collected": []  # Track what info we've already collected
+            "info_collected": []  
         }
     
     portfolio = user_portfolios[user_id]
     lowercase_input = user_input.lower()
     newly_extracted = []
     
-    # Extract age
     if portfolio["age"] is None:
         age_words = ["i am", "i'm", "age", "years old"]
         for age_word in age_words:
@@ -160,7 +158,6 @@ def extract_user_data(user_input, user_id):
                     except:
                         pass
     
-    # Extract income
     if portfolio["income"] is None:
         income_words = ["income", "earn", "salary", "make", "lakh", "lakhs", "crore", "crores"]
         for income_word in income_words:
@@ -183,7 +180,7 @@ def extract_user_data(user_input, user_id):
                             except:
                                 pass
     
-    # Extract risk tolerance
+   
     if portfolio["risk_tolerance"] is None:
         risk_words = {
             "conservative": ["conservative", "safe", "low risk", "careful"],
@@ -196,7 +193,7 @@ def extract_user_data(user_input, user_id):
                 portfolio["risk_tolerance"] = risk_level
                 newly_extracted.append("risk_tolerance")
     
-    # Extract goals
+    
     goal_keywords = {
         "retirement": ["retirement", "retire"],
         "education": ["education", "college", "university", "school fees"],
@@ -213,7 +210,7 @@ def extract_user_data(user_input, user_id):
             portfolio["goals"].append(goal)
             newly_extracted.append(f"goal_{goal}")
     
-    # Update info_collected list
+   
     portfolio["info_collected"].extend(newly_extracted)
     
     return portfolio, newly_extracted
@@ -223,17 +220,17 @@ def create_context_aware_prompt(user_input, user_id):
     portfolio, newly_extracted = extract_user_data(user_input, user_id)
     conversation_history = get_conversation_history(user_id)
     
-    # Base system message
+
     system_prompt = DEFAULT_SYSTEM_MESSAGE
     
-    # Add conversation context
+    
     if conversation_history:
         system_prompt += "\n\nPREVIOUS CONVERSATION CONTEXT:"
         system_prompt += "\n- Build on what was already discussed"
         system_prompt += "\n- Don't repeat previous advice"
         system_prompt += "\n- Reference earlier topics naturally"
     
-    # Add user data context
+    
     if portfolio and any(v for v in portfolio.values() if v is not None):
         system_prompt += "\n\nUSER PROFILE:"
         
@@ -256,7 +253,7 @@ def create_context_aware_prompt(user_input, user_id):
         if portfolio["goals"]:
             system_prompt += f"\n- Goals: {', '.join(portfolio['goals'])}"
     
-    # Add what information is still needed
+    
     missing_info = []
     if not portfolio.get("age"):
         missing_info.append("age")
@@ -272,7 +269,7 @@ def create_context_aware_prompt(user_input, user_id):
         system_prompt += "\n- Naturally ask for missing info when relevant"
         system_prompt += "\n- Don't ask all questions at once"
     
-    # Add newly extracted information context
+    
     if newly_extracted:
         system_prompt += f"\n\nNEWLY LEARNED: {', '.join(newly_extracted)}"
         system_prompt += "\n- Acknowledge new information provided"
@@ -315,19 +312,14 @@ def get_financial_advice(user_input, user_id):
     if not user_input:
         return "Please provide some information or ask a question so I can assist you with financial advice."
     
-    # Get conversation history
     conversation_history = get_conversation_history(user_id)
     
-    # Create context-aware system prompt
     system_prompt = create_context_aware_prompt(user_input, user_id)
     
-    # Build messages with conversation history
     messages = [{"role": "system", "content": system_prompt}]
     
-    # Add conversation history
     messages.extend(conversation_history)
     
-    # Add current user input
     messages.append({"role": "user", "content": user_input})
     
     try:
@@ -339,7 +331,6 @@ def get_financial_advice(user_input, user_id):
             
         response_text = result.choices[0].message.content.strip()
         
-        # Add to conversation history
         add_to_conversation_history(user_id, user_input, response_text)
         
         return response_text
